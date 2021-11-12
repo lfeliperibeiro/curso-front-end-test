@@ -38,4 +38,11 @@ describe('Query string to object', () => {
       profission: 'developer',
     });
   });
+
+  it('should corvert a query string to a single key, value to object', () => {
+    const queryString = 'name=Felipe';
+    expect(parse(queryString)).toEqual({
+      name: 'Felipe',
+    });
+  });
 });
