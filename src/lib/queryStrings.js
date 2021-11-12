@@ -9,4 +9,12 @@ module.exports.queryString = obj =>
   Object.entries(obj).map(keyvalueToString).join('&');
 
 module.exports.parse = string =>
-  Object.fromEntries(string.split('&').map(item => item.split('=')));
+  Object.fromEntries(
+    string.split('&').map(item => {
+      const parts = item.split('=');
+      if (parts[1].indexOf(',') > 1) {
+        parts[1] = parts[1].split(',');
+      }
+      return parts;
+    }),
+  );
