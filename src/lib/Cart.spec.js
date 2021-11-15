@@ -5,6 +5,11 @@ describe('Cart', () => {
     title: 'Adidas running shoes',
     price: 35388,
   };
+
+  let product2 = {
+    title: 'Adidas running shoes',
+    price: 41872,
+  };
   beforeEach(() => {
     cart = new Cart();
   });
@@ -32,5 +37,20 @@ describe('Cart', () => {
       quantity: 1,
     });
     expect(cart.getTotal()).toEqual(35388);
+  });
+
+  it('should update total when a product gets included and then removed', () => {
+    cart.add({
+      product,
+      quantity: 2,
+    });
+
+    cart.add({
+      product: product2,
+      quantity: 1,
+    });
+
+    cart.remove(product);
+    expect(cart.getTotal()).toEqual(41872);
   });
 });
