@@ -10,7 +10,11 @@ export default class Cart {
     if (find(this.items, itemToFind)) {
       remove(this.items, itemToFind);
     }
-    console.log(this.items.push(item));
+    this.items.push(item);
+  }
+
+  remove(product) {
+    remove(this.items, { product });
   }
 
   getTotal() {
