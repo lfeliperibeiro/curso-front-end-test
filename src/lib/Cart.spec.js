@@ -67,27 +67,7 @@ describe('Cart', () => {
         product: product2,
         quantity: 3,
       });
-      expect(cart.checkout()).toMatchInlineSnapshot(`
-        Object {
-          "items": Array [
-            Object {
-              "product": Object {
-                "price": 35388,
-                "title": "Adidas running shoes",
-              },
-              "quantity": 2,
-            },
-            Object {
-              "product": Object {
-                "price": 41872,
-                "title": "Adidas running shoes",
-              },
-              "quantity": 3,
-            },
-          ],
-          "total": 196392,
-        }
-      `);
+      expect(cart.checkout()).toMatchSnapshot();
     });
   });
 });
