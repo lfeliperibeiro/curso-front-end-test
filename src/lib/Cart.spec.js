@@ -80,4 +80,17 @@ describe('Cart', () => {
     cart.checkout();
     expect(cart.getTotal()).toEqual(0);
   });
+
+  it('should return object with the total and the list of items when sumary is called', () => {
+    cart.add({
+      product,
+      quantity: 2,
+    });
+    cart.add({
+      product: product2,
+      quantity: 3,
+    });
+    expect(cart.sumary()).toMatchSnapshot();
+    expect(cart.getTotal()).toBeGreaterThan(0);
+  });
 });
