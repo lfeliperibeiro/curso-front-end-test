@@ -22,7 +22,7 @@ Object {
 }
 `;
 
-exports[`Cart should return object with the total and the list of items when sumary is called 1`] = `
+exports[`Cart checkout should return object with the total and the list of items when sumary is called 1`] = `
 Object {
   "items": Array [
     Object {
