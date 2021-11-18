@@ -70,4 +70,14 @@ describe('Cart', () => {
       expect(cart.checkout()).toMatchSnapshot();
     });
   });
+
+  it('should reset the cart when checkout is called', () => {
+    cart.add({
+      product: product2,
+      quantity: 3,
+    });
+
+    cart.checkout();
+    expect(cart.getTotal()).toEqual(0);
+  });
 });
