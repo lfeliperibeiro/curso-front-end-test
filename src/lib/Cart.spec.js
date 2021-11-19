@@ -109,7 +109,7 @@ describe('Cart', () => {
 
       expect(cart.getTotal().getAmount()).toEqual(74315);
     });
-    it('should apply quantity discount for even quatities', function () {
+    it('should apply quantity discount for even quatities', () => {
       const condition = {
         quantity: 2,
       };
@@ -121,6 +121,20 @@ describe('Cart', () => {
       });
 
       expect(cart.getTotal().getAmount()).toEqual(70776);
+    });
+
+    it('should apply quantity discount for add quantities', () => {
+      const condition = {
+        quantity: 2,
+      };
+
+      cart.add({
+        product,
+        condition,
+        quantity: 5,
+      });
+
+      expect(cart.getTotal().getAmount()).toEqual(106164);
     });
   });
 });
