@@ -152,5 +152,19 @@ describe('Cart', () => {
 
       expect(cart.getTotal().getAmount()).toEqual(70776);
     });
+
+    it('should not apply quantity discount for even quatities when condition is not met', () => {
+      const condition = {
+        quantity: 2,
+      };
+
+      cart.add({
+        product,
+        condition,
+        quantity: 1,
+      });
+
+      expect(cart.getTotal().getAmount()).toEqual(35388);
+    });
   });
 });
